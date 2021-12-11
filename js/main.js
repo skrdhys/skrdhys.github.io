@@ -154,10 +154,13 @@
       sphere.position.y = mochi-25;
       count.textContent = Math.floor(mochi / 150 * 100);
       persent.style.color = "#ffffff"
-      starttext.classList.add('remove');
+      starttext.classList.remove('remove');
       sphere.material.color = new THREE.Color(0xffffff);
       box.material.color = new THREE.Color(0xffffff);
+    }
 
+    if (mochi > 2){
+      starttext.classList.add('remove');
     }
 
     if(mochi > 100){
