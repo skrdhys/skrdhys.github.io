@@ -170,3 +170,6 @@ svg {
 #starttext.remove {
   opacity: 0;
 }
+#starttext.remove2 {
+  display: none;
+}
