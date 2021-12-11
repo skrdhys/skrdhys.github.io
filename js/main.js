@@ -12,16 +12,12 @@
   var axisHelper;
   var lightHelper;
   var renderer;
-  // var width = 500;
-  // var height = 250;
+
   var controls;
   var shadowHelper;
-  // var mouse = new THREE.Vector2(-100, -100);
 
   var obj;
   var mochi = 1;
-
-  let startTime;
 
   scene = new THREE.Scene();
 
@@ -73,7 +69,6 @@
   // scene.add(lightHelper);
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
-  // renderer.setSize(width, height);
   renderer.setClearColor(0xE60012);
   renderer.setPixelRatio(window.devicePixelRatio);
   document.getElementById('stage') .appendChild(renderer.domElement);
@@ -101,12 +96,6 @@
   controls.enablePan = false;
   controls.maxPolarAngle = Math.PI/2.5; 
   controls.minPolarAngle = Math.PI/2.5; 
-
-  // document.addEventListener('mousedown', function(e) {
-  //   var rect = e.target.getBoundingClientRect();
-  //     mouse.x = (e.clientX - rect.left) / window.innerWidth * 2 - 1;
-  //     mouse.y = (e.clientY - rect.top) / window.innerHeight * -1 * 2 + 1;
-  // });
 
   
   document.addEventListener( 'mousedown', clickPosition, false );
@@ -147,7 +136,6 @@
     }
   };
 
-  // const counts = document.getElementById('count');
   const persent = document.getElementById('persent');
   const sbow = document.getElementById('snow');
   const svg = document.getElementById('svg');
@@ -155,20 +143,8 @@
   const starttext = document.getElementById('starttext');
   
   function render() {
-    // var raycaster = new THREE.Raycaster();
-    // var objs;
-
     requestAnimationFrame(render);
 
-    // raycaster.setFromCamera(mouse, camera);
-    // objs = raycaster.intersectObjects(scene.children);
-    // if (objs.length > 0 ) {
-      // mochi += 10;
-      // console.log(mochi);
-      // return;
-    // }
-    
-    // box.rotation. y += 0.005;
     controls.update();
     if (mochi > 1){
       mochi -= 0.1;
@@ -202,6 +178,7 @@
 
     if (mochi > 152){
       scene.remove(obj);
+      count.textContent = "100";
       persent.classList.add('remove');
       snow.classList.remove('hide');
       svg.classList.remove('hide');
@@ -211,28 +188,10 @@
     }
 
     renderer.render(scene, camera);
-
-    // console.log(Date.now - startTime);
-
-
-    // if (mochi > 170){
-    //   elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
-    //   const result = document.getElementById('result');
-    //   result.textContent = `${elapsedTime}`;
-    // }
   }
   render();
 
-  // mochi -= (Date.now() - startTime) / 1000;
-
-  // function countUp() {
-  //   // console.log(Date.now() - startTime);
-
-  //   setTimeout(() => {
-  //     countUp();
-  //   }, 10);
-  // }
-
+  
   $(document).ready(function(){
 		$("#snow").snowfall(
 			{
