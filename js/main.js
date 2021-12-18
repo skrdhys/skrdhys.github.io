@@ -171,7 +171,7 @@
       box.material.color = new THREE.Color(0xfff4ba);
     }
     if(mochi > 130){
-      persent.style.color = "#FF7800"
+      persent.style.color = "#FFD600"
       sphere.material.color = new THREE.Color(0xffe791);
       box.material.color = new THREE.Color(0xffe791);
     }
@@ -181,6 +181,9 @@
       box.material.color = new THREE.Color(0xffac4d);
     }
 
+    if (mochi > 150){
+      count.textContent = "100";
+    }
     if (mochi > 152){
       scene.remove(obj);
       count.textContent = "100";
@@ -191,7 +194,6 @@
       controls.autoRotate = false;
       mochi = 0;
       starttext.classList.add('remove2');
-
     }
 
     renderer.render(scene, camera);
